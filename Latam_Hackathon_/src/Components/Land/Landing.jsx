@@ -59,7 +59,7 @@ const Landing = () => {
                               className="distributed-h1"
                               data-animate-on-scroll
                             >
-                              DISTRIBUTED
+                              DISTRIBUTED 
                             </h1>
                           </div>
                           <div className="frame-div2">
@@ -93,7 +93,9 @@ const Landing = () => {
                     data-animate-on-scroll
                   >
                     <button className="discover-normal-button">
-                      <div className="solar-projects-div">Solar Projects</div>
+                      <div className="solar-projects-div">
+                        <a href="/explore" className="logo flex">
+                        Solar Projects</a> </div>
                       <div className="line-div" />
                     </button>
                     <button className="buy-normal-button">

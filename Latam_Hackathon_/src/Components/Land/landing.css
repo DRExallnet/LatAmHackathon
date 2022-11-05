@@ -454,11 +454,12 @@
 .div_container {
   display: flex;
   align-items: center;
+  padding-top: 3rem;
   justify-content: space-between;
   
 }
 .content-frame-div {
-  align-self:center;
+  align-self: center;
   height: 100%;
   flex-shrink: 0;
   flex-direction: column;
