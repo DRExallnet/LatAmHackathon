@@ -158,8 +158,7 @@ const Main = () => {
                  <div className="desc">
                   <p>{description}</p>
                  </div>
-      
-                 <button className='btn flex'>DETAILS <HiClipboardList className="icon"/> </button>
+                 <button className='btn flex'><a href="/solarprojectmochasa">DETAILS</a><HiClipboardList className="icon"/> </button>
                 </div>
               </div>
       

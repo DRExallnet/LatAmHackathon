@@ -7,7 +7,7 @@ import {AiFillYoutube} from 'react-icons/ai'
 import {AiFillInstagram} from 'react-icons/ai'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {FaTripadvisor} from 'react-icons/fa'
-import logo from '../Assets/electric_black.png'
+import logo from '../Assets/e-nft_logo_black.png'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
  

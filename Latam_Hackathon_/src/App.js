@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import LandingPage from "./pages/Landingz";
 import Explore from "./pages/Explore"
+import Details_1 from "./pages/Details_1"
 import { useEffect } from "react";
-import Dapp from "./pages/Dashboard";
 import './App.css'
 function App() {
   const action = useNavigationType();
@@ -50,7 +50,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/explore" element={<Explore />} />
-      <Route path="/dashboard" element={<Dapp />} />
+      <Route path="/solarprojectmochasa" element={<Details_1 />} />
     </Routes>
   );
 }

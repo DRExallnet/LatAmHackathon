@@ -3,7 +3,7 @@ import './navbar.css'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
 import {MdOutlineTravelExplore} from 'react-icons/md'
-import logo from '../Assets/electric_blue.png'
+import logo from '../Assets/e-nft_logo.png'
 
 const Navbar = () => {
 

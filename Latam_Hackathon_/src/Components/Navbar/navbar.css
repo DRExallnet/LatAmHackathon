@@ -16,14 +16,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--gradientColor);
+  background: transparent;
   width: 100%;
   height: var(--headerHeight);
   z-index: 1000;
   padding: 1rem;
 }
 .header .logo {
-  color: var(--blackColor);
   font-weight: 600;
   cursor: pointer;
   align-items: center;
@@ -73,12 +72,12 @@
     padding: 0.5rem 0;
   }
   .header .navBar .navLists .navItem .navLink {
-    color: var(--textColor);
+    color: var(--whiteColor);
     font-size: 0.9rem;
     font-weight: 600;
   }
   .header .navBar .navLists .navItem .navLink:hover {
-    color: var(--PrimaryColor);
+    color: var(----whiteColor);
   }
   .header .navBar .navLists .btn {
     margin-top: 1rem;

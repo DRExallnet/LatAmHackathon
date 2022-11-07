@@ -94,13 +94,15 @@ const Landing = () => {
                   >
                     <button className="discover-normal-button">
                       <div className="solar-projects-div">
-                        <a href="/explore" className="logo flex">
-                        Solar Projects</a> </div>
+                        <a href="/explore" className="buy-div">
+                        Projects</a> </div>
                       <div className="line-div" />
                     </button>
                     <button className="buy-normal-button">
-                      <div className="buy-div">{`BUY `}</div>
-                      <div className="line-div" />
+                      <div className="buy-div">
+                      <a href="/solarprojectmochasa" className="buy-div">
+                        Buy</a></div>
+                        <div className="line-div" />
                     </button>
                   </div>
                 </div>
