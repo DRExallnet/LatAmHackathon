@@ -17,7 +17,7 @@ return(
                     <div class="cuerpo">
                     <p>Mochasa is a company with over 50+ years in the Shrimp Feedstock Industry looking to become more sustainable.</p>
                     <a class="btn" href="http://www.molinoschampion.com/">Webpage</a>
-                    <a class="btn" href="#">Buy E-NFT</a>
+                    <a class="btn" href="#">Buy e-NFT</a>
                     </div>
                 </div>
                 <div class="ladoDer">
@@ -27,5 +27,6 @@ return(
     </div>
  );
 };
+
 
 export default Mochasa;
