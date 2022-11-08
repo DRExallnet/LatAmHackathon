@@ -3,14 +3,20 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { ChainId, DAppProvider } from '@usedapp/core';
 import "./global.css";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
+const config = {
+  readOnlyChainId: ChainId.Moonriver,
+};
 
 root.render(
   <BrowserRouter>
-      <App />
+    <DAppProvider config={config}>
+        <App />
+      </DAppProvider>
   </BrowserRouter>
 
 );

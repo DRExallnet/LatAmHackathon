@@ -3,6 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@chakra-ui/react": "^2.3.7",
+        "@ethersproject/units": "^5.7.0",
         "@formkit/auto-animate": "^1.0.0-beta.3",
         "@polkadot/api": "^9.4.1",
         "@testing-library/jest-dom": "^5.16.1",
@@ -12,6 +14,7 @@
         "@types/node": "^16.11.14",
         "@types/react": "^18.0.17",
         "@types/react-dom": "^18.0.6",
+        "@usedapp/core": "^1.2.1",
         "aos": "^2.3.4",
         "mapbox-gl": "^2.10.0",
         "moment": "^2.29.4",

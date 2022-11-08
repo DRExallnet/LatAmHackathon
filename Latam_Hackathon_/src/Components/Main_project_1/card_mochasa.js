@@ -8,6 +8,8 @@ const Mochasa = () => {
     useEffect(()=>{
         Aos.init({duration: 4000})
      }, [])
+  
+
 return(
     <div class="tarjeta">
         <div class="contenido">
@@ -16,8 +18,8 @@ return(
                 <h4 className="destTitle">Guayaquil, Ecuador</h4>
                     <div class="cuerpo">
                     <p>Mochasa is a company with over 50+ years in the Shrimp Feedstock Industry looking to become more sustainable.</p>
-                    <a class="btn" href="http://www.molinoschampion.com/">Webpage</a>
-                    <a class="btn" href="#">Buy e-NFT</a>
+                    <a className='btn' href="http://www.molinoschampion.com/">Webpage</a>
+                    <a className='btn' href="#">Buy e-NFT</a>
                     </div>
                 </div>
                 <div class="ladoDer">
