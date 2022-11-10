@@ -5,7 +5,11 @@ import 'aos/dist/aos.css';
 import { useEtherBalance, useEthers } from '@usedapp/core';
 import { formatEther } from "@ethersproject/units";
 import Mochasa from '../Main_project_1/card_mochasa';
-import { Text } from '@chakra-ui/react';
+import {
+  
+  Text,
+  
+} from '@chakra-ui/react';
 
 const Main_project = ({ data }) => {
   useEffect(()=>{
@@ -22,10 +26,7 @@ const Main_project = ({ data }) => {
 
   return (
     <section id='main' className='main section container' data-aos="fade-up">
-              <button className='btn' onClick={() => activateBrowserWallet()}>{account ? trimAccount(account) : `Connect Wallet`}</button>
-              <Text>
-              MOVR balance: {etherBalance && formatEther(etherBalance)}
-              </Text>
+      <button className='btn' onClick={() => activateBrowserWallet()}>{account ? trimAccount(account) : `Connect Wallet`}</button>              
       <div className="secTitle">
         <h3 className="title">
           Project overview

@@ -9,7 +9,7 @@ import "./global.css";
 const container = document.getElementById("root");
 const root = createRoot(container);
 const config = {
-  readOnlyChainId: ChainId.Moonriver,
+  readOnlyChainId: ChainId.MoonbaseAlpha,
 };
 
 root.render(
