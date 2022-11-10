@@ -56,28 +56,14 @@ Our team was able to make major progress in all tasks, notably:
 ## 2.4. Challenges 
 
 
-
-Our team faced several technical challenges, principal among them the fact that none of us were well-versed in the Substrate. It took some time to get used to spinning up our local development networks and working with different pallets.
-
- It was particularly challenging due to the limited documentation of most parachains to integrate different parachain runtimes with a working local development relay chain. In particular, the Robonomics development node does not come with xcm or xTokens pallets and trying to install these proved difficult since attempting to build Robonomics from source yielded errors. Integration of these pallets into our local development parachain proved difficult. 
-
-Additionally, given that the minigrid sensor is based in Guayaquil and all our developers are based in different countries and not on-site meant dealing with a bunch of networking issues to connect our local development network to the Raspberry Pi Robnomics development node. 
-
-Finally, our developers come from a Python background, and the smart contract code was written with the mindset that frameworks such as Brownie would be supported in EVM-compatible environments. However, we found this was not particularly the case and that all documentation was focused heavily on JavaScript. 
-
 ## 2.5. Future Work
-We will focus on addressing the challenges in the coming weeks with the goal of completing our end-to-end pipeline. The two major tasks are
-1. Integration of xTokens and xcm pallets into Robonomics development network runtime
-2. Porting Python deployment code to JavaScript for deployment in Moonriver
 
-## 2.6. Closing Remarks 
-We have built a strong foundation for the future of our project, and although our MVP is yet to be fully realized, we are confident that in the next several weeks we will conclude what we started here. It has indeed been a learning journey for all of us, both in implementation and exploration.  
 
 # 3. Installation
 ## Directories
 * <code>[./robonomics_onboarding](./robonomics_onboarding)</code>: Code for grid sensor onbaording and minigrid sensor deployment scripts
-* <code>[./xcm_simulation](./ocw_simulation)</code>: Code for spinning up Kusama relay chain with accommodating parachains, creating a HRMP channel and passing XCM messages through it via xTokens and xcm pallets 
-* <code>[./nft_smart_contracts](./nft_smart_contracts)</code>: Smart contract solidity files as well as deployment code
+* <code>[./asset_transfer](./asset_transfer)</code>: Code for explored approaches for asset transfer with XCM, OCW, oracles 
+* <code>[./nft_smart_contracts](./nft_smart_contracts)</code>: Moonriver smart contract solidity files as well as deployment code
 * <code>[./front_end](./front_end)</code>: Code for UI/UX deployment, connected via REST API to back-end
 * <code>[./back_end](./back_end)</code>: Code for back-end deployment
 * <code>[./imgs](./imgs)</code>: Reference images
