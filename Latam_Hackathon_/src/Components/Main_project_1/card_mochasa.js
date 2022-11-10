@@ -78,7 +78,7 @@ const [currentAccount, setCurrentAccount] = useState(null);
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         console.log("Initialize payment");
-        let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.01") });
+        let nftTxn = await nftContract.createCollectible(1, { value: ethers.utils.parseEther("0.01") });
 
         console.log("Mining... please wait");
         await nftTxn.wait();
