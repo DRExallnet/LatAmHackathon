@@ -23,7 +23,7 @@ const providerRPC = {
     },
   };
 /* const provider = new ethers.providers.JsonRpcProvider(QUICKNODE_HTTP_ENDPOINT)*/
-const [currentAccount, setCurrentAccount] = useState(null);
+/* const [currentAccount, setCurrentAccount] = useState(null);
 
   const checkWalletIsConnected = async () => {
     const { ethereum } = window;
@@ -62,7 +62,9 @@ const [currentAccount, setCurrentAccount] = useState(null);
     }
   }
 
-  const mintNftHandler = async () => {
+  const mintNftHandler = async () => { */
+const askContractToMintNft = async () => {
+      
     try {
       const { ethereum } = window;
 
@@ -78,7 +80,32 @@ const [currentAccount, setCurrentAccount] = useState(null);
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         console.log("Initialize payment");
-        let nftTxn = await nftContract.createCollectible("None");
+
+        console.log("Going to pop wallet now to pay gas...")
+        let nftTxn = await nftContract.createCollectible();
+  
+        console.log("Mining...please wait.")
+        await nftTxn.wait();
+        
+        console.log(`Mined, see transaction: https://goerli.etherscan.io/tx/${nftTxn.hash}`);
+  
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
+
+
+
+
+
+
+   /*      let nftTxn = await nftContract.createCollectible('mint');
 
         console.log("Mining... please wait");
         await nftTxn.wait();
@@ -112,7 +139,7 @@ const [currentAccount, setCurrentAccount] = useState(null);
 
   useEffect(() => {
     checkWalletIsConnected();
-  }, [])
+  }, []) */
      
 /* const { ethers } = require("ethers")
 const privateKey = readFileSync(".secret").toString().trim()
@@ -181,7 +208,10 @@ return(
                     <div className="cuerpo">
                     <p>Mochasa is a company with over 50+ years in the Shrimp Feedstock Industry looking to become more sustainable.</p>
                     <a className='btn' href="http://www.molinoschampion.com/">Webpage</a>
-                    <>{currentAccount ? mintNftButton() : connectWalletButton()}</>
+                    <button onClick={askContractToMintNft} className="cta-button connect-wallet-button">
+        Mint NFT
+      </button>
+                    {/* <>{currentAccount ? mintNftButton() : connectWalletButton()}</> */}
                     </div>
                 </div>
                 <div className="ladoDer">
