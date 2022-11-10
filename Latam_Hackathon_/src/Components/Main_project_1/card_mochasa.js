@@ -15,7 +15,13 @@ const Mochasa = () => {
 
 const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040";
 const abi = contract.abi;
-const QUICKNODE_HTTP_ENDPOINT = "https://moonbeam-alpha.api.onfinality.io/public"
+const providerRPC = {
+    moonbase: {
+      name: 'moonbase-alpha',
+      rpc: 'https://rpc.api.moonbase.moonbeam.network',
+      chainId: 1287, // 0x507 in hex,
+    },
+  };
 /* const provider = new ethers.providers.JsonRpcProvider(QUICKNODE_HTTP_ENDPOINT)*/
 const [currentAccount, setCurrentAccount] = useState(null);
 
@@ -61,7 +67,13 @@ const [currentAccount, setCurrentAccount] = useState(null);
       const { ethereum } = window;
 
       if (ethereum) {
-        const provider = new ethers.providers.JsonRpcProvider(QUICKNODE_HTTP_ENDPOINT);
+        const provider = new ethers.providers.StaticJsonRpcProvider(
+            providerRPC.moonbase.rpc, 
+            {
+              chainId: providerRPC.moonbase.chainId,
+              name: providerRPC.moonbase.name,
+            }
+          );
         const signer = provider.getSigner();
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -161,18 +173,18 @@ async function createCollectible(index, name, amount) {
 createCollectible(0, "drexnft", 1) */
 
 return(
-    <div class="tarjeta">
-        <div class="contenido">
-            <div class="ladoIzq">
-                <h2 class="titulo">Molinos Champion S.A. Mochasa</h2>
+    <div className="tarjeta">
+        <div className="contenido">
+            <div className="ladoIzq">
+                <h2 className="titulo">Molinos Champion S.A. Mochasa</h2>
                 <h4 className="destTitle">Guayaquil, Ecuador</h4>
-                    <div class="cuerpo">
+                    <div className="cuerpo">
                     <p>Mochasa is a company with over 50+ years in the Shrimp Feedstock Industry looking to become more sustainable.</p>
                     <a className='btn' href="http://www.molinoschampion.com/">Webpage</a>
-                    {currentAccount ? mintNftButton() : connectWalletButton()}
+                    <>{currentAccount ? mintNftButton() : connectWalletButton()}</>
                     </div>
                 </div>
-                <div class="ladoDer">
+                <div className="ladoDer">
                     <img className="image-mochasa" alt="" src={img} />
             </div>
         </div>
