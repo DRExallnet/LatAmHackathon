@@ -1,0 +1,361 @@
+//ethers.js
+
+//https://www.youtube.com/watch?v=JBudoefuKBk
+
+//ATTEMPT_1 - VIDEO_ORIGINAL
+/* const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040";
+
+const providerRPC = {
+  moonbase: {
+    name: 'moonbase-alpha',
+    rpc: 'https://rpc.api.moonbase.moonbeam.network',
+    chainId: 1287,
+  },
+};
+
+const [accounts, setAccounts] = useState([]);
+
+async function connectAccounts() {
+  if (window.ethereum){
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts"
+    });
+    setAccounts(accounts);
+  }
+}
+
+useEffect(() => {
+  connectAccounts();
+}, []);
+
+// MINTING
+
+const [mintAmount, setMintAmount] = useState(1);
+
+async function handleMint() {
+  if (window.ethereum) {
+      const provider = new ethers.providers.StaticJsonRpcProvider(
+      providerRPC.moonbase.rpc, 
+      {
+        chainId: providerRPC.moonbase.chainId,
+        name: providerRPC.moonbase.name,
+      }
+    );
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      contractAddress,
+      mintABI.abi,
+      signer
+    );
+    try{
+      const response = await contract.mint(BigNumber.from(mintAmount));
+      console.log("response: ", response);
+    } catch(err) {
+      console.log("error: ")
+    }
+  }
+
+}
+ */
+/* 
+
+//2. EXAMPLE_FROM_SOMEWHERE
+const providerRPC = {
+    moonbase: {
+      name: 'moonbase-alpha',
+      rpc: 'https://rpc.api.moonbase.moonbeam.network',
+      chainId: 1287, // 0x507 in hex,
+    },
+  };
+
+const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040";
+const abi = contract.abi;
+
+const RPC ="https://rpc.api.moonbase.moonbeam.network";
+
+const wallet = new ethers.Wallet(ethPrivkey, provider);
+
+const signer = wallet.provider.getSigner(wallet.address);
+
+const provider = new ethers.providers.JsonRpcProvider(RPC);
+
+const [currentAccount, setCurrentAccount] = useState(null);
+
+  const checkWalletIsConnected = async () => {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+      console.log("Make sure you have Metamask installed!");
+      return;
+    } else {
+      console.log("Wallet exists! We're ready to go!")
+    }
+
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+    if (accounts.length !== 0) {
+      const account = accounts[0];
+      console.log("Found an authorized account: ", account);
+      setCurrentAccount(account);
+    } else {
+      console.log("No authorized account found");
+    }
+  }
+
+  const connectWalletHandler = async () => {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+      alert("Please install Metamask!");
+    }
+
+    try {
+      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      console.log("Found an account! Address: ", accounts[0]);
+      setCurrentAccount(accounts[0]);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
+//ORIGINAL_EXAMPLE_POSTED_ON_DISCORD_MOONBEAM_SERVER_ADAPTED_TO_SOLUTION
+
+const [accounts, setAccounts] = useState([]);
+
+
+const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040";
+
+const account_from = {
+  privateKey: '37b1423508843d85d6dcf87407d6f10a462b3d5936252e20169b04198dc02f9d',
+};
+
+const wallet = new ethers.Wallet(account_from.privateKey, provider);
+
+const providerRPC = {
+  moonbase: {
+    name: 'moonbase-alpha',
+    rpc: 'https://rpc.api.moonbase.moonbeam.network',
+    chainId: 1287,
+  },
+};
+
+async function connectAccounts() {
+  if (window.ethereum){
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts"
+    });
+    setAccounts(accounts);
+  }
+}
+
+useEffect(() => {
+  connectAccounts();
+}, []);
+
+// MINTING
+
+ const askContractToMintNft = async () => {
+      
+    try {
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.StaticJsonRpcProvider(
+            providerRPC.moonbase.rpc, 
+            {
+              chainId: providerRPC.moonbase.chainId,
+              name: providerRPC.moonbase.name,
+            }
+          );
+          const signer = wallet.provider.getSigner(wallet.address);
+
+          const nftContract = new ethers.Contract(contractAddress, abi, signer, wallet);
+
+        console.log("Initialize payment");
+
+        console.log("Going to pop wallet now to pay gas...")
+        let nftTxn = await nftContract.createCollectible("None");
+  
+        console.log("Mining...please wait.")
+        await nftTxn.wait();
+        
+        console.log(`Mined, see transaction: https://moonbase.moonscan.io/tx/${nftTxn.hash}`);
+  
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+// EXAMPLE_VIDEO_ON_TOP_ADAPTED_TO_DISCORD_MOONBEAM_RECOMMENDATIONS
+
+
+const [accounts, setAccounts] = useState([]);
+
+
+const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040";
+
+const account_from = {
+  privateKey: '37b1423508843d85d6dcf87407d6f10a462b3d5936252e20169b04198dc02f9d',
+};
+
+const wallet = new ethers.Wallet(account_from.privateKey, provider);
+
+const providerRPC = {
+  moonbase: {
+    name: 'moonbase-alpha',
+    rpc: 'https://rpc.api.moonbase.moonbeam.network',
+    chainId: 1287,
+  },
+};
+
+async function connectAccounts() {
+  if (window.ethereum){
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts"
+    });
+    setAccounts(accounts);
+  }
+}
+
+useEffect(() => {
+  connectAccounts();
+}, []);
+
+// MINTING
+
+const [mintAmount, setMintAmount] = useState(1);
+
+async function handleMint() {
+  if (window.ethereum) {
+      const provider = new ethers.providers.StaticJsonRpcProvider(
+      providerRPC.moonbase.rpc, 
+      {
+        chainId: providerRPC.moonbase.chainId,
+        name: providerRPC.moonbase.name,
+      }
+    );
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      contractAddress,
+      mintABI.abi,
+      signer,
+      wallet
+    );
+    try{
+      const response = await contract.mint(BigNumber.from(mintAmount));
+      console.log("response: ", response);
+    } catch(err) {
+      console.log("error: ")
+    }
+  }
+
+}
+
+
+
+     
+  // EXAMPLE_QUICKNODE
+  https://www.quicknode.com/guides/web3-sdks/how-to-mint-an-nft-on-polygon-with-ethersjs
+
+const privateKey = '37b1423508843d85d6dcf87407d6f10a462b3d5936252e20169b04198dc02f9d'
+const providerURL  = "https://rpc.api.moonbase.moonbeam.network"
+const provider = new ethers.providers.StaticJsonRpcProvider(providerURL, {
+  chainId: 1287,
+  name: 'moonbase-alphanet'
+});
+const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040"
+const contractAbi = mintABI.abi
+const contractInstance = new ethers.Contract(contractAddress, contractAbi, provider)
+async function getGasPrice() {
+    let feeData = await provider.getFeeData()
+    return feeData.gasPrice
+}
+
+async function getWallet(privateKey) {
+    const wallet = await new ethers.Wallet(privateKey, provider)
+    return wallet
+}
+
+async function getChain(_provider) {
+    let chainId = await _provider.getNetwork()
+    return chainId.chainId
+}
+
+async function getContractInfo(index, id) {
+    let contract = await contractInstance.getERC1155byIndexAndId(index, id)
+    return contract;
+}
+
+async function getNonce(signer) {
+    return (await signer).getTransactionCount()
+}
+async function mint(index, name, amount) {
+    try {
+        if (await getChain(provider) === 1287) {
+            const wallet = getWallet(privateKey)
+            const nonce = await getNonce(wallet)
+            const gasFee = await getGasPrice()
+            let rawTxn = await contractInstance.populateTransaction.createCollectible(index, name, amount, {
+                gasPrice: gasFee, 
+                nonce: nonce
+            })
+            console.log("...Submitting transaction with gas price of:", ethers.utils.formatUnits(gasFee, "gwei"), " - & nonce:", nonce)
+            let signedTxn = (await wallet).sendTransaction(rawTxn)
+            let reciept = (await signedTxn).wait()
+            if (reciept) {
+                console.log("Transaction is successful!!!" + '\n' + "Transaction Hash:", (await signedTxn).hash + '\n' + "Block Number: " + (await reciept).blockNumber + '\n' + "Navigate to https://moonbase.moonscan.io/tx/" + (await signedTxn).hash, "to see your transaction")
+            } else {
+                console.log("Error submitting transaction")
+            }
+        }
+        else {
+            console.log("Wrong network - Connect to configured chain ID first!")
+        }
+    } catch (e) {
+        console.log("Error Caught in Catch Statement: ", e)
+    }
+}
+
+
+
+/// USING Web3.js
+/* import privateKey from './.secret';
+import mintABI from './AdvancedCollectible.json';
+import Web3 from 'web3';
+import ethers from 'ethers'
+
+const Mochasa = () => {
+    useEffect(()=>{
+        Aos.init({duration: 4000})
+     }, []);
+
+const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040";
+const ABI = mintABI.abi;
+
+async function connectwallet() {
+  if (window.ethereum) {
+    var web3 = new Web3('https://rpc.api.moonbase.moonbeam.network');
+    await window.ethereum.send('eth_requestAccounts');
+    var accounts = await web3.eth.getAccounts();
+        account = accounts[0];
+        document.getElementById('wallet-address').textContent = account;
+        contract = new web3.eth.Contract(ABI, contractAddress);
+      }
+  }
+
+  async function mint() {
+    if (window.ethereum) {
+      var _mintAmount = Number(document.querySelector("[name=amount]").value);
+      var mintRate = Number(await contract.methods.cost().call());
+      var totalAmount = mintRate * _mintAmount; 
+    contract.methods.createCollectible(account, _mintAmount).send({ from: account, value: String(totalAmount)})
+  }
+}
+ */
+
+
