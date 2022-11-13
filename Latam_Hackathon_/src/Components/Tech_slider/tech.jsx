@@ -5,7 +5,7 @@ import img2 from '../Assets/slide_r/kusama.png';
 import img4 from '../Assets/slide_r/moonbase.png';
 import img3 from '../Assets/slide_r/raspberry pi.png';
 import img5 from '../Assets/slide_r/robonomics.png';
-import img6 from '../Assets/slide_r/thunder_blues 12.png';
+import img6 from '../Assets/slide_r/drex.png';
 import img7 from '../Assets/slide_r/polkadot_latam_badge.png';
 
 

@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect } from "react";
 import { useHref } from "react-router-dom";
 import "./landing.css";
-import Tech_Slider from '../Tech_slider/tech'
 
 
 const Landing = () => {
@@ -120,8 +119,6 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <Tech_Slider/>
-
     </main>
 
   );
