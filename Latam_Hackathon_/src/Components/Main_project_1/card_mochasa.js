@@ -3,60 +3,83 @@ import './card_mochasa.css';
 import img from '../Assets/img_mochasa.jpg';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import privateKey from './.secret';
 import mintABI from './AdvancedCollectible.json';
 import Web3 from 'web3';
-import { ethers }from 'ethers'
 
 const Mochasa = () => {
     useEffect(()=>{
         Aos.init({duration: 4000})
      }, []);
 
-     const providerRPC = {
-      moonbase: {
-        name: 'moonbase-alpha',
-        rpc: 'https://rpc.api.moonbase.moonbeam.network',
-        chainId: 1287,
-      },
+// 1. Import dependencies
+
+// 2. Import the contract abi
+
+var nft_abi = mintABI.abi;
+
+// 3. Add the Web3 provider logic here:
+const NFT_CONTRACT_ADDRESS = '0xa62D32475E30E9e4072707c9c5A07eE51b443040'
+
+// 4. Import account information - TODO: Connect metamask wallet here, get account connected in front-end
+const accountFrom = {
+    address: '0xD2D49002Ec4cDD56FC064450a5749f4Da1fBA61c',
+    privateKey: '4c80e8f3a4809d21957c92466c5d42cd00cbd41726093ce9e8c6fa1bc82002db',
+}; 
+
+const [account, setAccounts] = useState([]);
+
+async function connectAccounts() {
+  if (window.ethereum){
+    const account = await window.ethereum.request({
+      method: "eth_requestAccounts"
+    });
+    setAccounts(account);
+  }
+}
+
+useEffect(() => {
+  connectAccounts();
+}, []);
+
+
+
+// MINTING
+
+const [mintAmount, setMintAmount] = useState(1);
+
+// Checking for correct values
+console.log(accountFrom.address)
+console.log(accountFrom.privateKey)
+console.log(NFT_CONTRACT_ADDRESS)
+
+async function get_balance() {
+    var balance = await web3.eth.getBalance(accountFrom.address); //Will give value in.
+    console.log(balance)
+}
+get_balance();
+
+// 5. Create transaction, sign and send to testnet
+async function run(){
+    const web3 = new Web3('https://moonbeam-alpha.api.onfinality.io/public');
+    web3.eth.getChainId().then(console.log);
+    const account1 = web3.eth.accounts.privateKeyToAccount(accountFrom.privateKey);
+    const transaction1 = contract.methods.createCollectible("None");
+    const receipt1 = await mint(web3, account1, transaction1);
+    console.log(receipt1);
+}
+
+async function mint(web3, account, transaction) {
+    const options  = {
+        to: NFT_CONTRACT_ADDRESS,
+        chainId: 1287, 
+        data    : transaction.encodeABI(),
+        gas     : 8000000,
     };
-    const contractAddress = "0xa62D32475E30E9e4072707c9c5A07eE51b443040"
-    const contractAbi = mintABI.abi
-
-
-     const askContractToMintNft = async () => {
-      
-      try {
-        const { ethereum } = window;
-  
-        if (ethereum) {
-          const provider = new ethers.providers.StaticJsonRpcProvider(
-            providerRPC.moonbase.rpc, 
-            {
-              chainId: providerRPC.moonbase.chainId,
-              name: providerRPC.moonbase.name,
-            }
-          );
-          const signer = provider.getSigner();
-          const nftContract = new ethers.Contract(contractAddress, contractAbi, signer);
-  
-          console.log("Initialize payment");
-  
-          console.log("Going to pop wallet now to pay gas...")
-          let nftTxn = await nftContract.createCollectible("None");
-    
-          console.log("Mining...please wait.")
-          await nftTxn.wait();
-          
-          console.log(`Mined, see transaction: https://moonbase.moonscan.io/tx/${nftTxn.hash}`);
-    
-        } else {
-          console.log("Ethereum object doesn't exist!");
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    const signed  = await web3.eth.accounts.signTransaction(options, accountFrom.privateKey);
+    const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction);
+    return receipt;
+}
+   
   
   
 return(
@@ -68,12 +91,13 @@ return(
                     <div className="cuerpo">
                     <p>Mochasa is a company with over 50+ years in the Shrimp Feedstock Industry looking to become more sustainable.</p>
                     <a className='btn' href="http://www.molinoschampion.com/">Webpage</a>
-                    <a className='btn'onClick={askContractToMintNft}> MINT </a>
-                    </div>
+                    <a className='btn'onClick={run}> MINT </a>
+                  
                 </div>
                 <div className="ladoDer">
                     <img className="image-mochasa" alt="" src={img} />
-            </div>
+                </div>
+            </div>      
         </div>
     </div>
  );
