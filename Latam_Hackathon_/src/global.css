@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MADE+Evolve+Sans:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gilroy:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MADE+Evolve+Sans+EVO:wght@400&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-gilroy: Gilroy;
+  --font-bebas: Bebas;
+  --font-made-evolve-sans: "MADE Evolve Sans";
+  --button-large: Poppins;
+  --font-made-evolve-sans-evo: "MADE Evolve Sans EVO";
+
+  /* font sizes */
+  --button-large-size: 16px;
+  --font-size-sm: 18px;
+  --font-size-base: 23px;
+  --font-size-lg: 70px;
+  --font-size-xl: 88px;
+  --font-size-2xl: 90px;
+
+  /* Colors */
+  --main-white: #fff;
+  --color-cyan: #5cffff;
+  --color-green: #4fff6b;
+
+  /* Gaps */
+  --gap-0: 0px;
+
+  /* Paddings */
+  --padding-sm: 10px;
+  --padding-md: 16px;
+  --padding-lg: 32px;
+
+  /* border radiuses */
+  --br-md: 8px;
+
+  /* Effects */
+  --button: 0px 2px 10px rgba(101, 192, 237, 0.5);
+}

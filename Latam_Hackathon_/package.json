@@ -1,0 +1,58 @@
+{
+    "name": "latam_hackathon",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@chakra-ui/react": "^2.3.7",
+        "@ethersproject/units": "^5.7.0",
+        "@formkit/auto-animate": "^1.0.0-beta.3",
+        "@polkadot/api": "^9.4.1",
+        "@testing-library/jest-dom": "^5.16.1",
+        "@testing-library/react": "^13.3.0",
+        "@testing-library/user-event": "^13.5.0",
+        "@types/jest": "^27.0.3",
+        "@types/node": "^16.11.14",
+        "@types/react": "^18.0.17",
+        "@types/react-dom": "^18.0.6",
+        "@usedapp/core": "^1.2.1",
+        "@walletconnect/client": "^1.8.0",
+        "@walletconnect/qrcode-modal": "^1.8.0",
+        "aos": "^2.3.4",
+        "ethers": "^5.7.2",
+        "mapbox-gl": "^2.10.0",
+        "moment": "^2.29.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.6.0",
+        "react-map-gl": "^7.0.19",
+        "react-router-dom": "^6.2.1",
+        "react-scripts": "5.0.1",
+        "recharts": "^2.1.8",
+        "scrollreveal": "^4.0.9",
+        "styled-components": "^5.3.3",
+        "web-vitals": "^2.1.2",
+        "web3": "^1.8.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {},
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "node-sass": "^7.0.3"
+    }
+}
