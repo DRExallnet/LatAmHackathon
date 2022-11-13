@@ -49,7 +49,7 @@ We also include helpful_scripts.py, which is a place to put miscellaneous functi
 
 ### The DREx sensor feed
 
-The DREx oracle feed also is necessary in obtaining real-time sensor data from the Robonomics. To deploy this contract, run the following
+The DREx oracle feed, as referred to in <code>[asset_transfer](../asset_transfer)</code> also is necessary in obtaining real-time sensor data from the Robonomics. To deploy this contract, run the following
 
 ```bash
 brownie run .\scripts\advanced_collectible\deploy_client.py --network moonbase-alpha
