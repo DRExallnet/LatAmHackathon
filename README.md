@@ -59,6 +59,8 @@ Our team was able to make major progress in all tasks, notably:
 ## 2.4. Challenges 
 The major challenge that we faced during this hackathon was the difficulty of getting our sensor data from Robonomics to Moonriver. As an HRMP channel does not yet exist, we initially explored an idea by which we could transfer sensor data tokens via XCM from Robonomics to Statemine, and then utilize a scheduler palette on Statemine to again via XCM send the sensor data tokens to Moonriver. We discovered quickly that Statemine has no existing scheduler palette, and decided to integrate an off-chain worker. While this was successful on a locally hosted blockchain, we experienced configuration difficulties when attempting to adapt the development environment to a Cumulus parachain. With no other way of getting our sensor data from Robonomics to Moonriver, we set up a Chainlink node and accomodating oracle as a sensor data feed from Robonomics. While we recognize that this presents a centralized point of failure in our pipeline, for the remaining duration of this hackathon, we saw no other alternative.
 
+We also saw a challenge in integration of the front end. We are relatively new at front end development, and as such when connecting our dApp smart contracts we had a lot of issues getting things to work between Metamask and the right libraries.
+
 In integrating Subquery for our Moonriver smart contracts, we were able to set up an API for transaction data, but ran into issues when trying to index minted NFTs for their metadata, as the documentation here was lacking. 
 
 ## 2.5. Future Work
