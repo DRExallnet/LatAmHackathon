@@ -4,14 +4,14 @@ Our initial idea was to use a custom parachain that uses offchain workers to bri
 
 ### Current Solution : Chainlink Node on Moonbase Alpha Testnet
 
-Currently, we have a Chainlink node running on Moonbase Alpha at ```0x7625dAd074438ae964107FE927cbdbCE8c6355c8``` . The Oracle contract is deployed at ```0x5e609E1c258255ef9Ee2022a519aBf5b9Fe1afe2``` . The ANY API job specification that we are using to fetch offchain data is
+Currently, we have a Chainlink node running on Moonbase Alpha at ```0x7625dAd074438ae964107FE927cbdbCE8c6355c8``` . The Oracle contract is deployed at ```0xd4d9ac4ecf5ddf18056ce6a91d0a8e7b0c910cce``` . The ANY API job specification that we are using to fetch offchain data is
 
 ```
 {
   "initiators": [
     {
       "type": "runlog",
-      "params": { "address": "0x5e609E1c258255ef9Ee2022a519aBf5b9Fe1afe2" }
+      "params": { "address": "0xd4d9ac4ecf5ddf18056ce6a91d0a8e7b0c910cce" }
     }
   ],
   "tasks": [
