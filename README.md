@@ -11,7 +11,7 @@ We will conduct a pilot study where a solar minigrid is constructed in Guayaquil
 
 # 2.  Hackathon
 ### 2.1 Goal
-The goal of this hackathon was to establish the foundations upon which we could construct a minimum viable product. As such, work was consolidated into five sectors:
+The goal of this hackathon was to establish the foundations upon which we could construct a minimum viable product. As such, work was consolidated into six sectors:
 
 1. Construction of a solar minigrid based out of Guayaquil, Ecuador
 2. Onboarding solar minigrid sensor data to Robonomics blockchain
@@ -45,7 +45,7 @@ Smart contracts will be written in Solidity and then deployed to Moonriver. The 
 React.js with JSX, along with @polkadot/api, mapbox-gl, recharts, and scrollreveal libraries will be used to construct the user interface. A REST API will be created to allow the front-end to pull sensor data from the back-end off the Raspberry Pi. The back-end services will be hosted on AWS and implemented in Java. 
 
 ### *2.2.6. Subquery Integration*
-We will write our own manifest file for decentralized indexing of our smart contracts. 
+We will write our own manifest file for decentralized indexing of our smart contracts, and integrate Subquery such that we can query our smart contract transactions and NFT metadata using GraphQL.
 
 ## 2.3. Achievements
 Our team was able to make major progress in all tasks, notably:
