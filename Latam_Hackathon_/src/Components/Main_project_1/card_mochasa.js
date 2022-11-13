@@ -65,20 +65,20 @@ async function run(){
     const web3 = new Web3('https://moonbeam-alpha.api.onfinality.io/public');
     web3.eth.getChainId().then(console.log);
     const contract = new web3.eth.Contract(nft_abi, accountFrom.address);
-    const account1 = web3.eth.account.privateKeyToAccount(accountFrom.privateKey);
+    const account1 = web3.eth.accounts.privateKeyToAccount(accountFrom.privateKey);
     const transaction1 = contract.methods.createCollectible("None");
     const receipt1 = await mint(web3, account1, transaction1);
     console.log(receipt1);
 }
 
-async function mint(web3, account, transaction) {
+async function mint(web3, accounts, transaction) {
     const options  = {
         to: NFT_CONTRACT_ADDRESS,
         chainId: 1287, 
         data    : transaction.encodeABI(),
         gas     : 8000000,
     };
-    const signed  = await web3.eth.account.signTransaction(options, accountFrom.privateKey);
+    const signed  = await web3.eth.accounts.signTransaction(options, accountFrom.privateKey);
     const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction);
     return receipt;
 }
