@@ -16,8 +16,8 @@ contract Client is ChainlinkClient {
     */
     constructor() {
         setChainlinkToken(address(0xa36085F69e2889c224210F603D836748e7dC0088));
-        oracle = 0x5e609E1c258255ef9Ee2022a519aBf5b9Fe1afe2;
-        jobId = "cdc698f82bb44716ad4e9a57f10c6357";
+        oracle = 0xD4D9ac4ecF5dDf18056ce6A91d0a8E7B0c910ccE;
+        jobId = "79abc1e36be340a697e2b49dd2d86798";
         fee = 0;
     }
 
