@@ -14,6 +14,9 @@
 :root .main {
   width: 100%;
 }
+.main{
+  height: auto;
+}
 :root .main .secTitle .title {
   position: relative;
   width: -webkit-max-content;

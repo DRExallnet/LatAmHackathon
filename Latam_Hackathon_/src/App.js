@@ -47,6 +47,7 @@ function App() {
   }, [pathname]);
 
   return (
+    
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/explore" element={<Explore />} />
