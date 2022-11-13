@@ -72,7 +72,6 @@ def write_metadata(token_id, nft_contract):
             json.dump(collectible_metadata, file)
         if os.getenv("UPLOAD_IPFS") == "true":
             token_uri = str(upload_to_ipfs(metadata_file_name))
-    return token_uri
 
 
 # curl -X POST -F file=@metadata/rinkeby/0-SHIBA_INU.json http://localhost:5001/api/v0/add
