@@ -25,4 +25,4 @@ Currently, we have a Chainlink node running on Moonbase Alpha at ```0x7625dAd074
   ]
 }
 ```
-You can access our Chainlink node by deploying the <code>[DrexApi.sol](../moonriver_dApp/contracts/DrexApi.sol)</code> contract. More instructions on how to do this can be found in <code>[moonriver_dApp/contracts](../moonriver_dApp/contracts)</code>. 
+You can access our Chainlink node by deploying the <code>[DrexApi.sol](../moonriver_dApp/contracts/DrexApi.sol)</code> contract. More instructions on how to do this can be found in <code>[../moonriver_dApp/contracts](../moonriver_dApp/contracts)</code>. 
