@@ -3,6 +3,7 @@ import './card_mochasa.css';
 import img from '../Assets/img_mochasa.jpg';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import privateKey from './.secret';
 import mintABI from './AdvancedCollectible.json';
 import Web3 from 'web3';
 
@@ -22,9 +23,10 @@ const NFT_CONTRACT_ADDRESS = '0xa62D32475E30E9e4072707c9c5A07eE51b443040'
 
 // 4. Import account information - TODO: Connect metamask wallet here, get account connected in front-end
 const accountFrom = {
-    address: '0xD2D49002Ec4cDD56FC064450a5749f4Da1fBA61c',
-    privateKey: '4c80e8f3a4809d21957c92466c5d42cd00cbd41726093ce9e8c6fa1bc82002db',
+    address: '0x32FA48d01720CCa0c39BC04DA139c5d8B1448525',
+    privateKey: '37b1423508843d85d6dcf87407d6f10a462b3d5936252e20169b04198dc02f9d',
 }; 
+
 
 const [account, setAccounts] = useState([]);
 
@@ -62,7 +64,8 @@ get_balance();
 async function run(){
     const web3 = new Web3('https://moonbeam-alpha.api.onfinality.io/public');
     web3.eth.getChainId().then(console.log);
-    const account1 = web3.eth.accounts.privateKeyToAccount(accountFrom.privateKey);
+    const contract = new web3.eth.Contract(nft_abi, accountFrom.address);
+    const account1 = web3.eth.account.privateKeyToAccount(accountFrom.privateKey);
     const transaction1 = contract.methods.createCollectible("None");
     const receipt1 = await mint(web3, account1, transaction1);
     console.log(receipt1);
@@ -75,7 +78,7 @@ async function mint(web3, account, transaction) {
         data    : transaction.encodeABI(),
         gas     : 8000000,
     };
-    const signed  = await web3.eth.accounts.signTransaction(options, accountFrom.privateKey);
+    const signed  = await web3.eth.account.signTransaction(options, accountFrom.privateKey);
     const receipt = await web3.eth.sendSignedTransaction(signed.rawTransaction);
     return receipt;
 }
@@ -91,13 +94,12 @@ return(
                     <div className="cuerpo">
                     <p>Mochasa is a company with over 50+ years in the Shrimp Feedstock Industry looking to become more sustainable.</p>
                     <a className='btn' href="http://www.molinoschampion.com/">Webpage</a>
-                    <a className='btn'onClick={run}> MINT </a>
-                  
+                    <a className='btn' onClick={run}> MINT </a>
+                    </div>
                 </div>
                 <div className="ladoDer">
                     <img className="image-mochasa" alt="" src={img} />
-                </div>
-            </div>      
+            </div>
         </div>
     </div>
  );
