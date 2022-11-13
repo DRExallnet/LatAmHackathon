@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 import privateKey from './.secret';
 import mintABI from './AdvancedCollectible.json';
 import Web3 from 'web3';
-import ethers from 'ethers'
+import { ethers } from 'ethers'
 
 const Mochasa = () => {
     useEffect(()=>{

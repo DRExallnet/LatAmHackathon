@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect } from "react";
 import { useHref } from "react-router-dom";
 import "./landing.css";
+import Tech_Slider from '../Tech_slider/tech'
+
 
 const Landing = () => {
   useEffect(() => {
@@ -81,7 +83,7 @@ const Landing = () => {
                       <span className="power-the-clean">
                           DREx is a decentralized renewable energy supply
                           network powered by <span className="trustlessly-span">IoT + Blockchain.</span>
-                        <span className="power-the-clean">{`Power the clean energy transition of emerging markets `}</span>
+                        <span className="power-the-clean">{` Power the clean energy transition of emerging markets `}</span>
                         <span className="trustlessly-span">trustlessly.</span>
                         </span>
                       </div>
@@ -112,12 +114,16 @@ const Landing = () => {
                 alt=""
                 src="../icon1.svg"
                 data-animate-on-scroll
+                href="https://mobile.twitter.com/DrexNetwork"
               />
             </div>
           </div>
         </div>
       </div>
+      <Tech_Slider/>
+
     </main>
+
   );
 };
 

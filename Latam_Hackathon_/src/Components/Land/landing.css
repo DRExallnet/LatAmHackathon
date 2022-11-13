@@ -182,9 +182,9 @@
 .image-icon {
   position: absolute;
   top: 0;
-  left: 628px;
+  left: 700px;
   max-height: 100%;
-  width: 796px;
+  width: 696px;
   object-fit: cover;
 }
 .abstract-image-hero-icon {
@@ -270,7 +270,6 @@
   z-index: 0;
 }
 .title-head-div {
-  width: 771px;
   height: 248px;
   flex-shrink: 0;
   flex-direction: column;
@@ -393,19 +392,18 @@
 }
 .texts-div {
   position: absolute;
-  top: 80.56px;
   left: 67px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 177px;
+  gap: 200px;
 }
 .header-text-div,
 .icon1 {
   position: relative;
   width: 1424px;
-  height: 660px;
+  height: 600px;
   flex-shrink: 0;
   z-index: 2;
 }
@@ -454,7 +452,7 @@
 .div_container {
   display: flex;
   align-items: center;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   justify-content: space-between;
   
 }
@@ -505,7 +503,7 @@
     cursor: pointer;
   }
   .text-div1 {
-    width: 936px;
+    width: 100%;
   }
   .head-text-div {
     width: 600px;

@@ -26,16 +26,16 @@ const Navbar = () => {
           <div className={active}>
             <ul onClick={removeNav} className="navLists flex">
               <li className="navItem">
-                <a href="/" className="navLink">Home</a>
+                <a href="http://www.drexall.net/" className="navLink">Home</a>
               </li>
               <li className="navItem">
                 <a href="/" className="navLink">About</a>
               </li>
               <li className="navItem">
-                <a href="/" className="navLink">Projects</a>
+                <a href="/explore" className="navLink">Projects</a>
               </li>
               <li className="navItem">
-                <a href="/" className="navLink">Invest </a>
+                <a href="/solarprojectmochasa" className="navLink">Invest </a>
               </li>
               <li className="navItem">
                 <a href="/" className="navLink">Contact</a>
