@@ -13,11 +13,12 @@ We will conduct a pilot study where a solar minigrid is constructed in Guayaquil
 ### 2.1 Goal
 The goal of this hackathon was to establish the foundations upon which we could construct a minimum viable product. As such, work was consolidated into five sectors:
 
-1.	Construction of a solar minigrid based out of Guayaquil, Ecuador
-2.	Onboarding solar minigrid sensor data to Robonomics blockchain
-3.	Cross-chain messaging between Robonomics and Moonriver 
-4.	Smart contract development for Moonriver
-5.	Front-end and back-end development 
+1. Construction of a solar minigrid based out of Guayaquil, Ecuador
+2. Onboarding solar minigrid sensor data to Robonomics blockchain
+3. Cross-chain messaging between Robonomics and Moonriver 
+4. Smart contract development for Moonriver
+5. Front-end and back-end development 
+6. Integration of a decentralized on-chain API via Subquery for Moonriver smart contracts
 
 ## 2.2 Implementation
 We break down each of the above tasks into their technical components:
@@ -43,6 +44,9 @@ Smart contracts will be written in Solidity and then deployed to Moonriver. The 
 ### *2.2.5. Front-end and back-end development*
 React.js with JSX, along with @polkadot/api, mapbox-gl, recharts, and scrollreveal libraries will be used to construct the user interface. A REST API will be created to allow the front-end to pull sensor data from the back-end off the Raspberry Pi. The back-end services will be hosted on AWS and implemented in Java. 
 
+### *2.2.6. Subquery Integration*
+We will write our own manifest file for decentralized indexing of our smart contracts. 
+
 ## 2.3. Achievements
 Our team was able to make major progress in all tasks, notably:
 1. A solar minigrid was built in Guayaquil, Ecuador
@@ -50,9 +54,12 @@ Our team was able to make major progress in all tasks, notably:
 3. A Chainlink oracle was used to facilitate data transfer of Robonomics sensor data to Moonriver, after exploring other potential cross-chain messaging solutions e.g. off-chain workers
 4. Solidity smart contracts written to facilitate NFT minting and DREx token generation and claim logic
 5. Front-end and back-end development concluded to produce working user interface, connected to Metamask wallet
+6. Subquery decentralized API integration for transaction processing
 
 ## 2.4. Challenges 
 The major challenge that we faced during this hackathon was the difficulty of getting our sensor data from Robonomics to Moonriver. As an HRMP channel does not yet exist, we initially explored an idea by which we could transfer sensor data tokens via XCM from Robonomics to Statemine, and then utilize a scheduler palette on Statemine to again via XCM send the sensor data tokens to Moonriver. We discovered quickly that Statemine has no existing scheduler palette, and decided to integrate an off-chain worker. While this was successful on a locally hosted blockchain, we experienced configuration difficulties when attempting to adapt the development environment to a Cumulus parachain. With no other way of getting our sensor data from Robonomics to Moonriver, we set up a Chainlink node and accomodating oracle as a sensor data feed from Robonomics. While we recognize that this presents a centralized point of failure in our pipeline, for the remaining duration of this hackathon, we saw no other alternative.
+
+In integrating Subquery for our Moonriver smart contracts, we were able to set up an API for transaction data, but ran into issues when trying to index minted NFTs for their metadata, as the documentation here was lacking. 
 
 ## 2.5. Future Work
 With Polkadot Proposal [#119](https://moonriver.polkassembly.network/referendum/119) likely to pass in several days, we are optimistic that we will soon be able to easily integrate the initial vision of a decentralized end-to-end electricity tokenization pipeline, outlined above. The opening of a bidirectional HRMP channel between Robonomics and Moonriver should greatly expedite development and make our approach much more straightforward.
@@ -68,6 +75,7 @@ We have also plans to port our Moonriver NFTs to RMRK, as their framework will a
 * <code>[./moonriver_dApp](./moonriver_dApp)</code>: Moonriver smart contract solidity files as well as deployment code
 * <code>[./front_end](./front_end)</code>: Code for UI/UX deployment, connected via REST API to back-end
 * <code>[./back_end](./back_end)</code>: Code for back-end deployment
+* <code>[./subquery_integration](./subquery_integration)</code>: Subquery decentralized API feed
 * <code>[./imgs](./imgs)</code>: Reference images
 
 ## Getting Started
