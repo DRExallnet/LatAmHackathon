@@ -82,10 +82,10 @@ We have also plans to port our Moonriver NFTs to RMRK, as their framework will a
 Please refer to the READMEs in each directory for installation and setup.
 
 ## Deployment Details
-* 0xd4d9ac4ecf5ddf18056ce6a91d0a8e7b0c910cce : Chainlink oracle
-* 0x7625dAd074438ae964107FE927cbdbCE8c6355c8 : Chainlink node
-* 0x7736ae714f3c53029e7f9ac0f9E1143f8883378e : [AdvancedCollectible.sol](./moonriver_dApp/contracts/AdvancedCollectible.sol)
-* 0x466242d0E92f2924383a8464356334ABfA9655af : [Our_ERC20.sol](./moonriver_dApp/contracts/Our_ERC20.sol) 
+* [0xd4d9ac4ecf5ddf18056ce6a91d0a8e7b0c910cce](https://moonbase.moonscan.io/address/0xd4d9ac4ecf5ddf18056ce6a91d0a8e7b0c910cce) : Chainlink oracle
+* [0x7625dAd074438ae964107FE927cbdbCE8c6355c8](https://moonbase.moonscan.io/address/0x7625dAd074438ae964107FE927cbdbCE8c6355c8) : Chainlink node
+* [0x7736ae714f3c53029e7f9ac0f9E1143f8883378e](https://moonbase.moonscan.io/address/0x7736ae714f3c53029e7f9ac0f9E1143f8883378e) : [AdvancedCollectible.sol](./moonriver_dApp/contracts/AdvancedCollectible.sol)
+* [0x466242d0E92f2924383a8464356334ABfA9655af](https://moonbase.moonscan.io/address/0x466242d0E92f2924383a8464356334ABfA9655af) : [Our_ERC20.sol](./moonriver_dApp/contracts/Our_ERC20.sol) 
 
 All contracts are deployed on Moonbase Alpha. 
 
