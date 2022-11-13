@@ -1,0 +1,62 @@
+specVersion: 1.0.0
+name: moonbeam-evm-starter
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: >-
+  A basic Frontier EVM example project with an event and call handler. Read more
+  about this at https://university.subquery.network/build/substrate-evm.html.
+  This project can be use as a starting point for developing your SubQuery
+  project
+repository: "https://github.com/subquery/tutorials-frontier-evm-starter"
+schema:
+  file: ./schema.graphql
+network:
+  # The genesis hash of the network (hash of block 0)
+  chainId: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
+  # This endpoint must be a public non-pruned archive node
+  # Public nodes may be rate limited, which can affect indexing speed
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint: "wss://moonbeam-alpha.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary"
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/FrontierEvm
+    startBlock: 3145519
+    processor:
+      file: "./node_modules/@subql/frontier-evm-processor/dist/bundle.js"
+      options:
+        # Must be a key of assets
+        abi: erc721
+        # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
+        address: "0xa62d32475e30e9e4072707c9c5a07ee51b443040"
+    assets:
+      erc721:
+        file: ./erc721.abi.json
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleFrontierEvmEvent
+          kind: substrate/FrontierEvmEvent
+          filter:
+            topics:
+              - "Transfer(address indexed from,address indexed to,uint256 value)"
+              - null
+              - null
+              - null
+        - handler: handleFrontierEvmCall
+          kind: substrate/FrontierEvmCall
+          filter:
+            ## The function can either be the function fragment or signature
+            # function: '0x095ea7b3'
+            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+            # function: approve(address,uint256)
+            function: "approve(address to,uint256 value)"
