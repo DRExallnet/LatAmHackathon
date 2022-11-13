@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS Grid;
+CREATE TABLE Grid(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    grid_id INT NOT NULL,
+    voltage DOUBLE NOT NULL,
+    current DOUBLE NOT NULL,
+    energy DOUBLE NOT NULL,
+    energy_acum DOUBLE NOT NULL,
+    datetime TIMESTAMP NOT NULL
+)
